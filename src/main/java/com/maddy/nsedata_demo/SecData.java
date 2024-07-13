@@ -11,10 +11,10 @@ import jakarta.persistence.Table;
 public class SecData {
 
     @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
-  private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
-  public Integer getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -22,21 +22,21 @@ public class SecData {
         this.id = id;
     }
 
-private String symbol;
-  private String SERIES;
-  private String DATE1;
-  private String PREV_CLOSE;
-  private String OPEN_PRICE;
-  private String HIGH_PRICE;
-  private String LOW_PRICE;
-  private String LAST_PRICE;
-  private String CLOSE_PRICE;
-  private String AVG_PRICE;
-  private String TTL_TRD_QNTY;
-  private String TURNOVER_LACS;
-  private String NO_OF_TRADES;
-  private String DELIV_QTY;
-  private String DELIV_PER;
+    private String symbol;
+    private String SERIES;
+    private String DATE1;
+    private String PREV_CLOSE;
+    private String OPEN_PRICE;
+    private String HIGH_PRICE;
+    private String LOW_PRICE;
+    private String LAST_PRICE;
+    private String CLOSE_PRICE;
+    private String AVG_PRICE;
+    private String TTL_TRD_QNTY;
+    private String TURNOVER_LACS;
+    private String NO_OF_TRADES;
+    private String DELIV_QTY;
+    private String DELIV_PER;
 
     public void setSYMBOL(String sYMBOL) {
         symbol = sYMBOL;
@@ -167,6 +167,4 @@ private String symbol;
         return symbol;
     }
 
-    
-    
-} 
+}
