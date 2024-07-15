@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller // This means that this class is a Controller
 @CrossOrigin
-@RequestMapping("api/")
+@RequestMapping("/api/")
 public class MainController {
     @Autowired
     private SecRepository secRepository;
@@ -20,8 +20,8 @@ public class MainController {
     @Autowired
     private SymbolRepository symbolRepository;
 
-    @GetMapping("/securities/{sec}")
-    public @ResponseBody SymbolData findBySymbol(@PathVariable("sec") String sym) {
+    @GetMapping("/securities/symbol/{symbol}")
+    public @ResponseBody SymbolData findBySymbol(@PathVariable("symbol") String sym) {
         return symbolRepository.findBySymbol(sym);
     }
 
@@ -30,9 +30,24 @@ public class MainController {
         return symbolRepository.findAll();
     }
 
-    @GetMapping(path = "data/all")
+    @GetMapping(path = "/bhavdata/all")
     public @ResponseBody Iterable<SecData> getData() {
         return secRepository.findAll();
     }
+
+    @GetMapping("/bhavdata/symbol/{symbol}")
+    public @ResponseBody Iterable<SecData> findDataBySec(@PathVariable("symbol") String sym) {
+        return secRepository.findDataBySymbol(sym);
+    }
+
+    @GetMapping("/bhavdata/date/{date}")
+    public @ResponseBody Iterable<SecData> findDataByDate(@PathVariable("date") String date) {
+        return secRepository.findDataByDATE1(date);
+    }
+
+    @GetMapping("/")
+	public String index() {
+		return "Greetings from Spring Boot!";
+	}
 
 }
